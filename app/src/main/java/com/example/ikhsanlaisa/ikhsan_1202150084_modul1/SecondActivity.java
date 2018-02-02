@@ -14,15 +14,12 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Intent intent = getIntent();
-        Intent intent1 = getIntent();
-        Intent intent2 = getIntent();
-        Intent intent3 = getIntent();
 
-        String restaurant = intent1.getStringExtra("restaurant");
+        String restaurant = intent.getStringExtra("restaurant");
         String makanan = intent.getStringExtra("makanan");
-        String porsi = intent2.getStringExtra("porsi");
+        String porsi = intent.getStringExtra("porsi");
         int porsi1 = Integer.parseInt(porsi);
-        String uangku = intent3.getStringExtra("mymoneys");
+        String uangku = intent.getStringExtra("mymoneys");
         int mymoney = Integer.parseInt(uangku);
 
         if (restaurant.equalsIgnoreCase("Eatbus")) {
