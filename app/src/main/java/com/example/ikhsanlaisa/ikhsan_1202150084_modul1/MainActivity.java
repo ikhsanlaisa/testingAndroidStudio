@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText editMakanan;
     private EditText editPorsi;
+    private Button btnEatbus;
+    private Button btnAbnormal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         editMakanan = findViewById(R.id.edittxt1);
         editPorsi = findViewById(R.id.edittxt2);
+        btnEatbus = findViewById(R.id.eatbus);
+        btnAbnormal = findViewById(R.id.abnormal);
     }
 
     public void lauchEatbus(View view) {
@@ -36,12 +41,15 @@ public class MainActivity extends AppCompatActivity {
         String porsi = editPorsi.getText().toString();
         intent.putExtra("porsi", porsi);
 
+        String restaurant = btnEatbus.getText().toString();
+        intent.putExtra("restaurant", restaurant);
+
         startActivity(intent);
     }
 
     public void lauchAbnormal(View view) {
 
-        Intent intent = new Intent(this, ThirdActivity.class);
+        Intent intent = new Intent(this, SecondActivity.class);
 
         int mymoney = 65500;
         String mymoneys = String.valueOf(mymoney);
@@ -53,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
         String porsi = editPorsi.getText().toString();
         intent.putExtra("porsi", porsi);
+
+        String restaurant = btnAbnormal.getText().toString();
+        intent.putExtra("restaurant", restaurant);
 
         startActivity(intent);
     }

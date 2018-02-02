@@ -12,43 +12,88 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        int nasiuduk = 50000;
 
         Intent intent = getIntent();
+        Intent intent1 = getIntent();
         Intent intent2 = getIntent();
         Intent intent3 = getIntent();
 
+        String restaurant = intent1.getStringExtra("restaurant");
         String makanan = intent.getStringExtra("makanan");
         String porsi = intent2.getStringExtra("porsi");
         int porsi1 = Integer.parseInt(porsi);
         String uangku = intent3.getStringExtra("mymoneys");
         int mymoney = Integer.parseInt(uangku);
 
-        int total = nasiuduk * porsi1;
-        if (mymoney >= total) {
-            TextView textView = findViewById(R.id.makanan);
-            textView.setText(makanan);
+        if (restaurant.equalsIgnoreCase("Eatbus")) {
+            int nasiuduk = 50000;
+            int total = nasiuduk * porsi1;
+            if (mymoney >= total) {
+                TextView textView = findViewById(R.id.makanan);
+                textView.setText(makanan);
 
-            TextView textView1 = findViewById(R.id.porsi1);
-            textView1.setText(porsi);
+                TextView textView1 = findViewById(R.id.porsi1);
+                textView1.setText(porsi);
 
-            String bayaran = String.valueOf(total);
-            TextView textView2 = findViewById(R.id.price);
-            textView2.setText(bayaran);
+                String bayaran = String.valueOf(total);
+                TextView textView2 = findViewById(R.id.price);
+                textView2.setText(bayaran);
 
-            Toast.makeText(this, "Selamat menikmati makan malamnya", Toast.LENGTH_LONG).show();
+                TextView textView3 = findViewById(R.id.txt2);
+                textView3.setText(restaurant);
+
+                Toast.makeText(this, "Disini aja makan malamnya", Toast.LENGTH_LONG).show();
+            } else {
+                TextView textView = findViewById(R.id.makanan);
+                textView.setText(makanan);
+
+                TextView textView1 = findViewById(R.id.porsi1);
+                textView1.setText(porsi);
+
+                String bayaran = String.valueOf(total);
+                TextView textView2 = findViewById(R.id.price);
+                textView2.setText(bayaran);
+
+                TextView textView3 = findViewById(R.id.txt2);
+                textView3.setText(restaurant);
+
+                Toast.makeText(this, "Jangan disini makan malamnya, uang kamu tidak cukup!", Toast.LENGTH_LONG).show();
+            }
         } else {
-            TextView textView = findViewById(R.id.makanan);
-            textView.setText(makanan);
+            int nasiuduk = 30000;
 
-            TextView textView1 = findViewById(R.id.porsi1);
-            textView1.setText(porsi);
+            int total = nasiuduk * porsi1;
+            if (mymoney >= total) {
+                TextView textView = findViewById(R.id.makanan);
+                textView.setText(makanan);
 
-            String bayaran = String.valueOf(total);
-            TextView textView2 = findViewById(R.id.price);
-            textView2.setText(bayaran);
-            Toast.makeText(this, "Jangan disini makan malamnya, uang kamu tidak cukup!", Toast.LENGTH_LONG).show();
+                TextView textView1 = findViewById(R.id.porsi1);
+                textView1.setText(porsi);
+
+                String bayaran = String.valueOf(total);
+                TextView textView2 = findViewById(R.id.price);
+                textView2.setText(bayaran);
+
+                TextView textView3 = findViewById(R.id.txt2);
+                textView3.setText(restaurant);
+
+                Toast.makeText(this, "Disini aja makan malamnya", Toast.LENGTH_LONG).show();
+            } else {
+                TextView textView = findViewById(R.id.makanan);
+                textView.setText(makanan);
+
+                TextView textView1 = findViewById(R.id.porsi1);
+                textView1.setText(porsi);
+
+                String bayaran = String.valueOf(total);
+                TextView textView2 = findViewById(R.id.price);
+                textView2.setText(bayaran);
+
+                TextView textView3 = findViewById(R.id.txt2);
+                textView3.setText(restaurant);
+
+                Toast.makeText(this, "Jangan disini makan malamnya, uang kamu tidak cukup!", Toast.LENGTH_LONG).show();
+            }
         }
-
     }
 }
